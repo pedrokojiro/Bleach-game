@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Foco absoluto",
+    "cost": 55,
+    "duration": 9,
+    "exhaustion": 2,
+    "damage": 1.1,
+    "speed": 1.35,
+    "reach": 1.05,
+    "absorption": 1,
+    "reflect": false,
+    "regen": 0,
+    "technique": "Sequência decisiva"
+  }
+]

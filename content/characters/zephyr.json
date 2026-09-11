@@ -1,0 +1,94 @@
+{
+  "profile": {
+    "nome": "Zephyr",
+    "titulo": "ARQUEIRO QUINCY",
+    "descricao": "Controle de espaço, mobilidade e pouca vida.",
+    "cor": [
+      110,
+      190,
+      255
+    ],
+    "vida": 90,
+    "velocidade": 390,
+    "dano": 8,
+    "defesa": 0.02,
+    "peso": 0.8,
+    "alcance": 78,
+    "reiatsu": 130,
+    "regen": 9,
+    "largura": 48,
+    "altura": 138,
+    "dificuldade": "Difícil",
+    "passiva": "Reishi: flecha carregável; regeneração na forma.",
+    "id": "zephyr"
+  },
+  "kit": {
+    "id": "zephyr",
+    "origin": "Humano",
+    "affiliation": "Quincy independente",
+    "archetype": "distância",
+    "visual": "archer",
+    "mobility": {
+      "name": "Hirenkyaku",
+      "speed": 1000,
+      "duration": 0.18,
+      "cost": 25,
+      "invulnerability": 0.12
+    },
+    "specials": [
+      [
+        "Heilig Pfeil",
+        "projectile",
+        17,
+        90
+      ],
+      [
+        "Selo de reishi",
+        "trap",
+        22,
+        90
+      ]
+    ],
+    "ultimate": "Chuva de reishi",
+    "exclusive": "Lichtregen",
+    "tempo": 0.88,
+    "hit_energy": 6,
+    "block_energy": 0,
+    "parry_window": 0.11,
+    "armor": false,
+    "projectile_speed": 780,
+    "aerial_projectile": true,
+    "charge": true,
+    "stamina_regen": 20,
+    "heal_on_hit": 0
+  },
+  "moves": "moves/zephyr.json",
+  "forms": "forms/zephyr.json",
+  "sprite": "res://assets/fighters/zephyr.png",
+  "released_sprite": "res://assets/fighters/zephyr_released.png",
+  "animation_states": [
+    "IDLE",
+    "WALK",
+    "RUN",
+    "DASH",
+    "JUMP",
+    "FALL",
+    "LAND",
+    "ATTACK_LIGHT",
+    "ATTACK_HEAVY",
+    "ATTACK_AIR",
+    "SPECIAL",
+    "ULTIMATE",
+    "BLOCK",
+    "PARRY",
+    "GRAB",
+    "HITSTUN",
+    "BLOCKSTUN",
+    "KNOCKDOWN",
+    "GET_UP",
+    "RELEASE",
+    "EXHAUSTED",
+    "VICTORY",
+    "DEFEAT"
+  ]
+}

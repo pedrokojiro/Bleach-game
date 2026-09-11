@@ -1,0 +1,94 @@
+{
+  "profile": {
+    "nome": "Vastor",
+    "titulo": "ARRANCAR DO VAZIO",
+    "descricao": "Força devastadora; recuperações vulneráveis.",
+    "cor": [
+      245,
+      104,
+      87
+    ],
+    "vida": 145,
+    "velocidade": 245,
+    "dano": 14,
+    "defesa": 0.1,
+    "peso": 1.6,
+    "alcance": 82,
+    "reiatsu": 90,
+    "regen": 5,
+    "largura": 88,
+    "altura": 166,
+    "dificuldade": "Normal",
+    "passiva": "Predação: cura ao acertar; armadura no forte.",
+    "id": "vastor"
+  },
+  "kit": {
+    "id": "vastor",
+    "origin": "Hollow / Arrancar",
+    "affiliation": "Hueco Mundo",
+    "archetype": "pressão",
+    "visual": "beast",
+    "mobility": {
+      "name": "Sonído",
+      "speed": 950,
+      "duration": 0.16,
+      "cost": 26,
+      "invulnerability": 0.065
+    },
+    "specials": [
+      [
+        "Cero",
+        "projectile",
+        31,
+        115
+      ],
+      [
+        "Ruptura bestial",
+        "wave",
+        28,
+        180
+      ]
+    ],
+    "ultimate": "Mandíbula do vazio",
+    "exclusive": "Cero devastador",
+    "tempo": 1.35,
+    "hit_energy": 6,
+    "block_energy": 0,
+    "parry_window": 0.11,
+    "armor": true,
+    "projectile_speed": 620,
+    "aerial_projectile": false,
+    "charge": false,
+    "stamina_regen": 20,
+    "heal_on_hit": 1.2
+  },
+  "moves": "moves/vastor.json",
+  "forms": "forms/vastor.json",
+  "sprite": "res://assets/fighters/vastor.png",
+  "released_sprite": "res://assets/fighters/vastor_released.png",
+  "animation_states": [
+    "IDLE",
+    "WALK",
+    "RUN",
+    "DASH",
+    "JUMP",
+    "FALL",
+    "LAND",
+    "ATTACK_LIGHT",
+    "ATTACK_HEAVY",
+    "ATTACK_AIR",
+    "SPECIAL",
+    "ULTIMATE",
+    "BLOCK",
+    "PARRY",
+    "GRAB",
+    "HITSTUN",
+    "BLOCKSTUN",
+    "KNOCKDOWN",
+    "GET_UP",
+    "RELEASE",
+    "EXHAUSTED",
+    "VICTORY",
+    "DEFEAT"
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "light": {
+    "nome": "Corte breve",
+    "estado": "ATTACK_LIGHT",
+    "startup": 0.09,
+    "active": 0.09,
+    "recovery": 0.19,
+    "dano": 10,
+    "alcance": 85,
+    "custo": 0,
+    "tipo": "melee",
+    "empurrao": 160,
+    "queda": false,
+    "cooldown": 0,
+    "hits": [
+      0.0
+    ],
+    "command": "light",
+    "hitstun": 0.34,
+    "blockstun": 0.16,
+    "knockdown": 0.65,
+    "animation": "ATTACK_LIGHT",
+    "sound": "hit",
+    "cancel_on_hit": true,
+    "hitboxes": [
+      {
+        "time": 0.0,
+        "reach": 85,
+        "y": 20,
+        "height": 121
+      }
+    ]
+  },
+  "heavy": {
+    "nome": "Ruptura",
+    "estado": "ATTACK_HEAVY",
+    "startup": 0.21,
+    "active": 0.12,
+    "recovery": 0.3,
+    "dano": 18.0,
+    "alcance": 113,
+    "custo": 0,
+    "tipo": "melee",
+    "empurrao": 250,
+    "queda": true,
+    "cooldown": 0,
+    "hits": [
+      0.0
+    ],
+    "command": "heavy",
+    "hitstun": 0.34,
+    "blockstun": 0.16,
+    "knockdown": 0.65,
+    "animation": "ATTACK_HEAVY",
+    "sound": "heavy",
+    "cancel_on_hit": true,
+    "hitboxes": [
+      {
+        "time": 0.0,
+        "reach": 113,
+        "y": 20,
+        "height": 121
+      }
+    ]
+  },
+  "air": {
+    "nome": "Ataque descendente",
+    "estado": "ATTACK_AIR",
+    "startup": 0.1,
+    "active": 0.18,
+    "recovery": 0.22,
+    "dano": 13.0,
+    "alcance": 100,
+    "custo": 0,
+    "tipo": "melee",
+    "empurrao": 160,
+    "queda": false,
+    "cooldown": 0,
+    "hits": [
+      0.0
+    ],
+    "command": "air",
+    "hitstun": 0.34,
+    "blockstun": 0.16,
+    "knockdown": 0.65,
+    "animation": "ATTACK_AIR",
+    "sound": "hit",
+    "cancel_on_hit": true,
+    "hitboxes": [
+      {
+        "time": 0.0,
+        "reach": 100,
+        "y": 20,
+        "height": 121
+      }
+    ]
+  },
+  "grab": {
+    "nome": "Arremesso",
+    "estado": "GRAB",
+    "startup": 0.13,
+    "active": 0.09,
+    "recovery": 0.38,
+    "dano": 21.0,
+    "alcance": 30,
+    "custo": 0,
+    "tipo": "grab",
+    "empurrao": 320,
+    "queda": true,
+    "cooldown": 0,
+    "hits": [
+      0.0
+    ],
+    "command": "grab",
+    "hitstun": 0.34,
+    "blockstun": 0.16,
+    "knockdown": 0.65,
+    "animation": "GRAB",
+    "sound": "heavy",
+    "cancel_on_hit": false,
+    "hitboxes": [
+      {
+        "time": 0.0,
+        "reach": 30,
+        "y": 20,
+        "height": 121
+      }
+    ]
+  },
+  "special": {
+    "nome": "Repulsão do escudo",
+    "estado": "SPECIAL",
+    "startup": 0.19,
+    "active": 0.18,
+    "recovery": 0.3,
+    "dano": 25,
+    "alcance": 190,
+    "custo": 22,
+    "tipo": "pulse",
+    "empurrao": 300,
+    "queda": false,
+    "cooldown": 0.65,
+    "hits": [
+      0.0
+    ],
+    "command": "special",
+    "hitstun": 0.34,
+    "blockstun": 0.16,
+    "knockdown": 0.65,
+    "animation": "SPECIAL",
+    "sound": "hit",
+    "cancel_on_hit": false,
+    "hitboxes": [
+      {
+        "time": 0.0,
+        "reach": 190,
+        "y": 20,
+        "height": 121
+      }
+    ]
+  },
+  "special2": {
+    "nome": "Bastião",
+    "estado": "SPECIAL",
+    "startup": 0.19,
+    "active": 0.18,
+    "recovery": 0.3,
+    "dano": 0,
+    "alcance": 100,
+    "custo": 30,
+    "tipo": "barrier",
+    "empurrao": 300,
+    "queda": false,
+    "cooldown": 0.65,
+    "hits": [
+      0.0
+    ],
+    "command": "special2",
+    "hitstun": 0.34,
+    "blockstun": 0.16,
+    "knockdown": 0.65,
+    "animation": "SPECIAL",
+    "sound": "hit",
+    "cancel_on_hit": false,
+    "hitboxes": [
+      {
+        "time": 0.0,
+        "reach": 100,
+        "y": 20,
+        "height": 121
+      }
+    ]
+  },
+  "ultimate": {
+    "nome": "Juízo de ferro",
+    "estado": "ULTIMATE",
+    "startup": 0.4,
+    "active": 0.55,
+    "recovery": 0.65,
+    "dano": 22,
+    "alcance": 300,
+    "custo": 75,
+    "tipo": "pulse",
+    "empurrao": 80,
+    "queda": false,
+    "cooldown": 3,
+    "hits": [
+      0.0,
+      0.18,
+      0.36
+    ],
+    "command": "ultimate",
+    "hitstun": 0.34,
+    "blockstun": 0.16,
+    "knockdown": 0.65,
+    "animation": "ULTIMATE",
+    "sound": "hit",
+    "cancel_on_hit": false,
+    "hitboxes": [
+      {
+        "time": 0.0,
+        "reach": 300,
+        "y": 20,
+        "height": 121
+      },
+      {
+        "time": 0.18,
+        "reach": 300,
+        "y": 20,
+        "height": 121
+      },
+      {
+        "time": 0.36,
+        "reach": 300,
+        "y": 20,
+        "height": 121
+      }
+    ]
+  },
+  "exclusive": {
+    "nome": "Juramento de ferro",
+    "estado": "ULTIMATE",
+    "startup": 0.22,
+    "active": 0.23,
+    "recovery": 0.48,
+    "dano": 42,
+    "alcance": 240,
+    "custo": 15,
+    "tipo": "pulse",
+    "empurrao": 330,
+    "queda": true,
+    "cooldown": 2,
+    "hits": [
+      0.0
+    ],
+    "command": "exclusive",
+    "hitstun": 0.34,
+    "blockstun": 0.16,
+    "knockdown": 0.65,
+    "animation": "ULTIMATE",
+    "sound": "heavy",
+    "cancel_on_hit": false,
+    "hitboxes": [
+      {
+        "time": 0.0,
+        "reach": 240,
+        "y": 20,
+        "height": 121
+      }
+    ]
+  }
+}

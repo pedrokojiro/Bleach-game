@@ -1,0 +1,94 @@
+{
+  "profile": {
+    "nome": "Kurogane",
+    "titulo": "FULLBRINGER DO ESCUDO",
+    "descricao": "Objeto de afinidade: escudo herdado da família.",
+    "cor": [
+      187,
+      155,
+      244
+    ],
+    "vida": 130,
+    "velocidade": 265,
+    "dano": 10,
+    "defesa": 0.18,
+    "peso": 1.35,
+    "alcance": 85,
+    "reiatsu": 110,
+    "regen": 6,
+    "largura": 78,
+    "altura": 151,
+    "dificuldade": "Normal",
+    "passiva": "Guarda: parry longo e reiatsu ao bloquear.",
+    "id": "kurogane"
+  },
+  "kit": {
+    "id": "kurogane",
+    "origin": "Humano",
+    "affiliation": "Fullbringer independente",
+    "archetype": "contra-ataque",
+    "visual": "guardian",
+    "mobility": {
+      "name": "Bringer Light",
+      "speed": 760,
+      "duration": 0.2,
+      "cost": 20,
+      "invulnerability": 0.08
+    },
+    "specials": [
+      [
+        "Repulsão do escudo",
+        "pulse",
+        25,
+        190
+      ],
+      [
+        "Bastião",
+        "barrier",
+        0,
+        100
+      ]
+    ],
+    "ultimate": "Juízo de ferro",
+    "exclusive": "Juramento de ferro",
+    "tempo": 1,
+    "hit_energy": 6,
+    "block_energy": 7,
+    "parry_window": 0.18,
+    "armor": false,
+    "projectile_speed": 620,
+    "aerial_projectile": false,
+    "charge": false,
+    "stamina_regen": 20,
+    "heal_on_hit": 0
+  },
+  "moves": "moves/kurogane.json",
+  "forms": "forms/kurogane.json",
+  "sprite": "res://assets/fighters/kurogane.png",
+  "released_sprite": "res://assets/fighters/kurogane_released.png",
+  "animation_states": [
+    "IDLE",
+    "WALK",
+    "RUN",
+    "DASH",
+    "JUMP",
+    "FALL",
+    "LAND",
+    "ATTACK_LIGHT",
+    "ATTACK_HEAVY",
+    "ATTACK_AIR",
+    "SPECIAL",
+    "ULTIMATE",
+    "BLOCK",
+    "PARRY",
+    "GRAB",
+    "HITSTUN",
+    "BLOCKSTUN",
+    "KNOCKDOWN",
+    "GET_UP",
+    "RELEASE",
+    "EXHAUSTED",
+    "VICTORY",
+    "DEFEAT"
+  ]
+}

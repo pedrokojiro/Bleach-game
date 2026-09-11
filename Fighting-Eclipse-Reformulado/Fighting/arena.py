@@ -4,8 +4,13 @@ import random
 import pygame
 from constants import *
 
+ARENAS={'soul_society':'Soul Society', 'karakura':'Karakura', 'hueco_mundo':'Hueco Mundo'}
+
 class ArenaVisual:
-    def __init__(self):
+    def __init__(self,identifier='soul_society'):
+        if identifier not in ARENAS:raise ValueError(identifier)
+        self.identifier=identifier
+        self.name=ARENAS[identifier]
         self.time=0
         self.sky=pygame.Surface((1280,720))
         for y in range(720):
@@ -44,12 +49,33 @@ class ArenaVisual:
             pygame.draw.line(self.fog,(109,145,159,max(0,18-int(abs(y-510)/5))),(0,y),(1280,y),4)
         self.vignette=pygame.Surface((1280,720),pygame.SRCALPHA)
         for i in range(35):pygame.draw.rect(self.vignette,(0,5,15,max(0,38-i)),(i*4,i*3,1280-i*8,720-i*6),4)
+        if identifier!='soul_society':
+            self.world.fill((0,0,0,0))
+            if identifier=='karakura':
+                for x in range(0,ARENA_WIDTH,160):
+                    height=rng.randrange(130,290)
+                    pygame.draw.rect(self.world,(25,34,55),(x,580-height,145,height))
+                    for xx in range(x+15,x+135,26):
+                        for yy in range(600-height,540,35):
+                            pygame.draw.rect(self.world,(194,163,94),(xx,yy,10,16))
+                pygame.draw.rect(self.world,(33,38,49),(0,580,ARENA_WIDTH,140))
+                pygame.draw.line(self.world,(208,197,162),(0,585),(ARENA_WIDTH,585),4)
+                for x in range(0,ARENA_WIDTH,140):pygame.draw.rect(self.world,(185,180,158),(x,650,75,5))
+            else:
+                self.sky.fill((8,12,22))
+                pygame.draw.circle(self.sky,(226,233,235),(930,125),65)
+                pygame.draw.circle(self.sky,(8,12,22),(950,110),57)
+                pygame.draw.rect(self.world,(186,195,204),(0,580,ARENA_WIDTH,140))
+                for x in range(0,ARENA_WIDTH,220):
+                    pygame.draw.polygon(self.world,(109,124,142),[(x,580),(x+35,405),(x+51,570)])
+                    pygame.draw.line(self.world,(109,124,142),(x+30,470),(x-35,420),7)
+                for y in (615,660,700):pygame.draw.line(self.world,(146,161,179),(0,y),(ARENA_WIDTH,y-10),2)
 
     def atualizar(self,dt):self.time+=dt
 
     def desenhar(self,s,camera_x=210):
         s.blit(self.sky,(0,0))
-        for layer in range(2):
+        for layer in range(2 if self.identifier=='soul_society' else 0):
             col=(19+layer*4,30+layer*5,46+layer*6)
             off=-camera_x*(.08+layer*.10)
             for i in range(8):

@@ -1,5 +1,5 @@
 """Match, round lifecycle and simultaneous melee resolution."""
-from seu_personagem import ELENCO
+from seu_personagem import criar_personagem
 from states import Fluxo as F, Estado as E
 from constants import ROUND_SECONDS
 from projetil import Projetil
@@ -9,9 +9,12 @@ from animation import sprite,ANIMATION
 
 class Match:
     def __init__(self,selections=(0,1),mode='PVE',difficulty=1):
-        self.players=[ELENCO[selections[0]](540),ELENCO[selections[1]](1040)]
+        self.players=[criar_personagem(selections[0],540),criar_personagem(selections[1],1040)]
         self.mode=mode;self.difficulty=difficulty
         self.bot=BotIA(self.players[1],difficulty)
+        self.training_dummy='PARADO'
+        self.training_resources=True
+        self.training_resets=0
         self.wins=[0,0];self.round=1;self.winner=None
         self.reset_round()
 
@@ -21,22 +24,41 @@ class Match:
         self.time=float(ROUND_SECONDS);self.phase=F.INTRO;self.phase_time=2.4
         self.result='';self.trail_time=0.
         self.bot.timer=0;self.bot.sequence=0
+        if self.mode=='TREINO':
+            self.phase=F.FIGHT;self.phase_time=0;self.time=float('inf')
+
+    def reset_training(self):
+        """Restore neutral positions without changing the selected fighters."""
+        self.players[0].resetar_round(540,True);self.players[1].resetar_round(1040,False)
+        self.projectiles=[];self.effects=Effects();self.time=float('inf')
+        self.phase=F.FIGHT;self.result='';self.trail_time=0
+        self.bot.timer=0;self.bot.sequence=0
+
+    def cycle_training_dummy(self):
+        modes=('PARADO','DEFESA','CPU')
+        self.training_dummy=modes[(modes.index(self.training_dummy)+1)%len(modes)]
+        self.players[1].defender(False);self.players[1].buffer.clear()
+        return self.training_dummy
 
     def resolve_attacks(self):
         hits=[]
         for p,other in ((self.players[0],self.players[1]),(self.players[1],self.players[0])):
             move=p.acao
             if not move or not move.startup<=p.tempo_acao<move.startup+move.active:continue
+            slots=[i for i,t in enumerate(move.hits) if move.startup+t<=p.tempo_acao<move.startup+(move.hits[i+1] if i+1<len(move.hits) else move.active) and i not in p.hit_slots]
+            if not slots:continue
             if move.tipo in ('projectile','wave','trap'):
-                if not p.emitiu:
-                    self.projectiles.append(Projetil(p,move));p.emitiu=True
+                for slot in slots:
+                    self.projectiles.append(Projetil(p,move));p.hit_slots.add(slot)
+                p.emitiu=True
             elif move.tipo=='barrier':
                 if not p.emitiu:p.barreira=2.5;p.emitiu=True;p.criar_efeito('parry')
-            elif not p.acertou and p.obter_hitbox().colliderect(other.obter_hurtbox()):
-                if move.tipo!='grab' or (p.no_chao and other.no_chao):hits.append((p,other,move))
-        for p,other,move in hits:
+                p.hit_slots.update(slots)
+            elif p.obter_hitbox().colliderect(other.obter_hurtbox()):
+                if move.tipo!='grab' or (p.no_chao and other.no_chao):hits.append((p,other,move,slots[0]))
+        for p,other,move,slot in hits:
             result=other.receber_dano(move,p)
-            if result!='miss':p.acertou=True
+            if result!='miss':p.acertou=True;p.hit_slots.add(slot)
         for q in self.projectiles:
             for p in self.players:q.checar_colisao(p)
         self.projectiles=[q for q in self.projectiles if q.ativo]
@@ -89,11 +111,25 @@ class Match:
             inputs.apply(0,self.players[0])
             if self.mode=='PVP':inputs.apply(1,self.players[1])
         if self.mode=='PVE':self.bot.process(dt,self.players[0],self.projectiles)
+        elif self.mode=='TREINO':
+            dummy=self.players[1]
+            dummy.mover(0);dummy.correndo=False
+            if self.training_dummy=='CPU':self.bot.process(dt,self.players[0],self.projectiles)
+            else:dummy.defender(self.training_dummy=='DEFESA')
         a,b=self.players
         a.atualizar(dt,b);b.atualizar(dt,a)
         self.separate()
         for q in self.projectiles:q.atualizar(dt)
         self.resolve_attacks()
+        if self.mode=='TREINO':
+            if self.training_resources:
+                for p in self.players:
+                    p.reiatsu=p.reiatsu_maximo;p.stamina=p.stamina_maxima
+            for p in self.players:
+                if p.vida<=0:
+                    p.vida=p.vida_atrasada=float(p.vida_maxima);p.cancelar_acao()
+                    p.estado(E.IDLE);p.invulnerabilidade=.6
+                    self.training_resets+=1
         self.trail_time-=dt
         if self.trail_time<=0:
             self.trail_time=.045
@@ -102,8 +138,9 @@ class Match:
                     img=sprite(p.identidade,p.estado_atual,ANIMATION.frame(p.anim_time),p.forma_liberada,p.direcao).copy()
                     self.effects.ghosts.append([img,(p.rect.centerx-140-(20 if p.direcao<0 else 0),p.rect.bottom-211),.2])
                 elif p.estado_atual==E.RUN:p.criar_efeito('dash')
-        self.time=max(0,self.time-dt)
-        if min(a.vida,b.vida)<=0 or self.time<=0:self.finish_round()
+        if self.mode!='TREINO':
+            self.time=max(0,self.time-dt)
+            if min(a.vida,b.vida)<=0 or self.time<=0:self.finish_round()
 
     def collect_events(self):
         events=[]

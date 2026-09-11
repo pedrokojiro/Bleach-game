@@ -8,8 +8,8 @@ class Projetil:
         self.tipo = tipo or move.tipo
         self.x = float(dono.rect.centerx+dono.direcao*48)
         self.y = float(dono.rect.centery)
-        self.vx = dono.direcao*(780 if dono.identidade==2 else 620)
-        self.vy = 240 if not dono.no_chao and dono.identidade==2 else 0
+        self.vx = dono.direcao*dono.kit.projectile_speed
+        self.vy = 240 if not dono.no_chao and dono.kit.aerial_projectile else 0
         self.vida = 1.8
         self.ativo = True
         self.direcao = dono.direcao
@@ -25,10 +25,12 @@ class Projetil:
 
     def checar_colisao(self,alvo):
         if not self.ativo or alvo is self.dono or not self.rect.colliderect(alvo.obter_hurtbox()):return False
-        reflected = alvo.forma_liberada and alvo.identidade==3 and alvo.barreira>0
+        reflected = alvo.form and alvo.form.reflect and alvo.barreira>0
         if reflected:
             self.dono=alvo;self.vx=-self.vx;self.direcao=-self.direcao
             self.x+=self.direcao*70;alvo.anunciar('REFLEXÃO')
+            self.rect.center=round(self.x),round(self.y)
+            self.cor=alvo.cor_base
             return True
         result=alvo.receber_dano(self.move,self.dono,True)
         if result!='miss':self.ativo=False
@@ -40,5 +42,12 @@ class Projetil:
             pygame.draw.circle(s,self.cor,(x,y),22,2)
             pygame.draw.polygon(s,self.cor,[(x,y-30),(x+13,y),(x,y+14),(x-13,y)],2)
         else:
+            if self.dono.kit.visual=='beast':
+                pygame.draw.circle(s,self.cor,(x,y),19)
+                pygame.draw.circle(s,(255,230,220),(x,y),9)
+                return
+            if self.dono.kit.visual=='human':
+                pygame.draw.rect(s,self.cor,(x-9,y-17,18,34),2)
+                return
             pygame.draw.line(s,self.cor,(x-self.direcao*65,y),(x,y),7)
             pygame.draw.polygon(s,(245,250,255),[(x+self.direcao*24,y),(x-self.direcao*12,y-10),(x,y),(x-self.direcao*12,y+10)])

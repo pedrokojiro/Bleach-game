@@ -1,0 +1,94 @@
+{
+  "profile": {
+    "nome": "Akari",
+    "titulo": "VIGILANTE DE KARAKURA",
+    "descricao": "Talismãs, esquiva econômica e contraofensiva.",
+    "cor": [
+      255,
+      197,
+      102
+    ],
+    "vida": 105,
+    "velocidade": 350,
+    "dano": 9,
+    "defesa": 0.04,
+    "peso": 0.95,
+    "alcance": 85,
+    "reiatsu": 100,
+    "regen": 6,
+    "largura": 54,
+    "altura": 140,
+    "dificuldade": "Normal",
+    "passiva": "Disciplina humana: stamina regenera mais rápido.",
+    "id": "akari"
+  },
+  "kit": {
+    "id": "akari",
+    "origin": "Humano",
+    "affiliation": "Vigilantes de Karakura",
+    "archetype": "técnico",
+    "visual": "human",
+    "mobility": {
+      "name": "Esquiva treinada",
+      "speed": 680,
+      "duration": 0.19,
+      "cost": 16,
+      "invulnerability": 0.025
+    },
+    "specials": [
+      [
+        "Palma concentrada",
+        "rush",
+        24,
+        110
+      ],
+      [
+        "Talismã de contenção",
+        "trap",
+        18,
+        100
+      ]
+    ],
+    "ultimate": "Sequência decisiva",
+    "exclusive": "Contraofensiva",
+    "tempo": 1,
+    "hit_energy": 6,
+    "block_energy": 0,
+    "parry_window": 0.11,
+    "armor": false,
+    "projectile_speed": 620,
+    "aerial_projectile": false,
+    "charge": false,
+    "stamina_regen": 30,
+    "heal_on_hit": 0
+  },
+  "moves": "moves/akari.json",
+  "forms": "forms/akari.json",
+  "sprite": "res://assets/fighters/akari.png",
+  "released_sprite": "res://assets/fighters/akari_released.png",
+  "animation_states": [
+    "IDLE",
+    "WALK",
+    "RUN",
+    "DASH",
+    "JUMP",
+    "FALL",
+    "LAND",
+    "ATTACK_LIGHT",
+    "ATTACK_HEAVY",
+    "ATTACK_AIR",
+    "SPECIAL",
+    "ULTIMATE",
+    "BLOCK",
+    "PARRY",
+    "GRAB",
+    "HITSTUN",
+    "BLOCKSTUN",
+    "KNOCKDOWN",
+    "GET_UP",
+    "RELEASE",
+    "EXHAUSTED",
+    "VICTORY",
+    "DEFEAT"
+  ]
+}

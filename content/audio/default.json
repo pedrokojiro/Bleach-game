@@ -1,0 +1,6 @@
+{
+  "hit": "res://assets/audio/hit.wav",
+  "heavy": "res://assets/audio/heavy.wav",
+  "release": "res://assets/audio/release.wav",
+  "menu": "res://assets/audio/menu.wav"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "hueco_mundo",
+  "name": "Hueco Mundo",
+  "color": [
+    0.15,
+    0.2,
+    0.24
+  ],
+  "width": 1700,
+  "floor": 580
+}

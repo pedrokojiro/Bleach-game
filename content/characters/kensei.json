@@ -1,0 +1,94 @@
+{
+  "profile": {
+    "nome": "Kensei",
+    "titulo": "SHINIGAMI ERRANTE",
+    "descricao": "Equilíbrio, alcance e cancelamentos rápidos.",
+    "cor": [
+      99,
+      205,
+      247
+    ],
+    "vida": 110,
+    "velocidade": 330,
+    "dano": 10,
+    "defesa": 0.05,
+    "peso": 1,
+    "alcance": 95,
+    "reiatsu": 110,
+    "regen": 7,
+    "largura": 58,
+    "altura": 142,
+    "dificuldade": "Fácil",
+    "passiva": "Disciplina: mais reiatsu ao acertar.",
+    "id": "kensei"
+  },
+  "kit": {
+    "id": "kensei",
+    "origin": "Alma / Shinigami",
+    "affiliation": "Shinigami independente",
+    "archetype": "equilibrado",
+    "visual": "swordsman",
+    "mobility": {
+      "name": "Shunpo",
+      "speed": 850,
+      "duration": 0.17,
+      "cost": 23,
+      "invulnerability": 0.045
+    },
+    "specials": [
+      [
+        "Getsurin",
+        "projectile",
+        26,
+        95
+      ],
+      [
+        "Corte Shunpo",
+        "rush",
+        23,
+        115
+      ]
+    ],
+    "ultimate": "Mil cortes",
+    "exclusive": "Lua infinita",
+    "tempo": 1,
+    "hit_energy": 9,
+    "block_energy": 0,
+    "parry_window": 0.11,
+    "armor": false,
+    "projectile_speed": 620,
+    "aerial_projectile": false,
+    "charge": false,
+    "stamina_regen": 20,
+    "heal_on_hit": 0
+  },
+  "moves": "moves/kensei.json",
+  "forms": "forms/kensei.json",
+  "sprite": "res://assets/fighters/kensei.png",
+  "released_sprite": "res://assets/fighters/kensei_released.png",
+  "animation_states": [
+    "IDLE",
+    "WALK",
+    "RUN",
+    "DASH",
+    "JUMP",
+    "FALL",
+    "LAND",
+    "ATTACK_LIGHT",
+    "ATTACK_HEAVY",
+    "ATTACK_AIR",
+    "SPECIAL",
+    "ULTIMATE",
+    "BLOCK",
+    "PARRY",
+    "GRAB",
+    "HITSTUN",
+    "BLOCKSTUN",
+    "KNOCKDOWN",
+    "GET_UP",
+    "RELEASE",
+    "EXHAUSTED",
+    "VICTORY",
+    "DEFEAT"
+  ]
+}

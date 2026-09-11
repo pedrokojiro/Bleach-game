@@ -1,0 +1,202 @@
+[
+  {
+    "id": "kensei",
+    "command": "walk",
+    "steps": 60,
+    "x": 542.6875,
+    "y": 438.0,
+    "energy": 110,
+    "stamina": 100,
+    "state": "WALK"
+  },
+  {
+    "id": "kensei",
+    "command": "jump",
+    "steps": 60,
+    "x": 400.0,
+    "y": 309.45833333333337,
+    "energy": 110,
+    "stamina": 100,
+    "state": "FALL"
+  },
+  {
+    "id": "kensei",
+    "command": "dash",
+    "steps": 60,
+    "x": 694.0277777777776,
+    "y": 438.0,
+    "energy": 110,
+    "stamina": 87.00000000000028,
+    "state": "IDLE"
+  },
+  {
+    "id": "kensei",
+    "command": "release",
+    "steps": 60,
+    "x": 400.0,
+    "y": 438.0,
+    "energy": 40.99999999999994,
+    "stamina": 100,
+    "state": "RELEASE"
+  },
+  {
+    "id": "vastor",
+    "command": "walk",
+    "steps": 60,
+    "x": 510.4583333333343,
+    "y": 414.0,
+    "energy": 90,
+    "stamina": 100,
+    "state": "WALK"
+  },
+  {
+    "id": "vastor",
+    "command": "jump",
+    "steps": 60,
+    "x": 400.0,
+    "y": 285.45833333333337,
+    "energy": 90,
+    "stamina": 100,
+    "state": "FALL"
+  },
+  {
+    "id": "vastor",
+    "command": "dash",
+    "steps": 60,
+    "x": 737.4791666666669,
+    "y": 414.0,
+    "energy": 90,
+    "stamina": 84.00000000000028,
+    "state": "IDLE"
+  },
+  {
+    "id": "vastor",
+    "command": "release",
+    "steps": 60,
+    "x": 400.0,
+    "y": 414.0,
+    "energy": 20.0,
+    "stamina": 100,
+    "state": "RELEASE"
+  },
+  {
+    "id": "zephyr",
+    "command": "walk",
+    "steps": 60,
+    "x": 563.5416666666667,
+    "y": 442.0,
+    "energy": 130,
+    "stamina": 100,
+    "state": "WALK"
+  },
+  {
+    "id": "zephyr",
+    "command": "jump",
+    "steps": 60,
+    "x": 400.0,
+    "y": 313.45833333333337,
+    "energy": 130,
+    "stamina": 100,
+    "state": "FALL"
+  },
+  {
+    "id": "zephyr",
+    "command": "dash",
+    "steps": 60,
+    "x": 775.4166666666669,
+    "y": 442.0,
+    "energy": 130,
+    "stamina": 85.00000000000028,
+    "state": "IDLE"
+  },
+  {
+    "id": "zephyr",
+    "command": "release",
+    "steps": 60,
+    "x": 400.0,
+    "y": 442.0,
+    "energy": 62.99999999999983,
+    "stamina": 100,
+    "state": "RELEASE"
+  },
+  {
+    "id": "kurogane",
+    "command": "walk",
+    "steps": 60,
+    "x": 518.3263888888882,
+    "y": 429.0,
+    "energy": 110,
+    "stamina": 100,
+    "state": "WALK"
+  },
+  {
+    "id": "kurogane",
+    "command": "jump",
+    "steps": 60,
+    "x": 400.0,
+    "y": 300.45833333333337,
+    "energy": 110,
+    "stamina": 100,
+    "state": "FALL"
+  },
+  {
+    "id": "kurogane",
+    "command": "dash",
+    "steps": 60,
+    "x": 673.6249999999999,
+    "y": 429.0,
+    "energy": 110,
+    "stamina": 90.00000000000028,
+    "state": "IDLE"
+  },
+  {
+    "id": "kurogane",
+    "command": "release",
+    "steps": 60,
+    "x": 400.0,
+    "y": 429.0,
+    "energy": 40.0,
+    "stamina": 100,
+    "state": "RELEASE"
+  },
+  {
+    "id": "akari",
+    "command": "walk",
+    "steps": 60,
+    "x": 549.8125000000001,
+    "y": 440.0,
+    "energy": 100,
+    "stamina": 100,
+    "state": "WALK"
+  },
+  {
+    "id": "akari",
+    "command": "jump",
+    "steps": 60,
+    "x": 400.0,
+    "y": 311.45833333333337,
+    "energy": 100,
+    "stamina": 100,
+    "state": "FALL"
+  },
+  {
+    "id": "akari",
+    "command": "dash",
+    "steps": 60,
+    "x": 622.3750000000003,
+    "y": 440.0,
+    "energy": 100,
+    "stamina": 99.0,
+    "state": "IDLE"
+  },
+  {
+    "id": "akari",
+    "command": "release",
+    "steps": 60,
+    "x": 400.0,
+    "y": 440.0,
+    "energy": 45.0,
+    "stamina": 100,
+    "state": "RELEASE"
+  }
+]

@@ -84,7 +84,7 @@ class CombatTests(unittest.TestCase):
         for p in (self.a,self.b):
             p.x=9999;p.sync_rect();self.assertLessEqual(p.rect.right,ARENA_WIDTH-24)
     def test_three_combo_sequences_all_fighters(self):
-        for i in range(4):
+        for i in range(len(ELENCO)):
             for sequence in [('light','light','light'),('light','light','heavy'),('light','heavy','special')]:
                 m=Match((i,1),'PVP');m.phase=F.FIGHT
                 p,target=m.players
@@ -104,12 +104,12 @@ class CombatTests(unittest.TestCase):
             for key in ('light','heavy','air','grab','special','special2','ultimate','exclusive'):
                 p=cls(600);target=ELENCO[1](700);p.reiatsu=130;p.forma_liberada=True;p.tempo_liberacao=10
                 self.assertTrue(p.iniciar_ataque(key),(p.nome,key))
-                for _ in range(180):p.atualizar(FIXED_DT,target)
+                for _ in range(round(p.acao.duracao/FIXED_DT)+2):p.atualizar(FIXED_DT,target)
                 self.assertIsNone(p.acao)
     def test_all_matchups_and_difficulties(self):
         for difficulty in range(3):
-            for i in range(4):
-                m=Match((i,(i+1)%4),'PVE',difficulty);m.phase=F.FIGHT
+            for i in range(len(ELENCO)):
+                m=Match((i,(i+1)%len(ELENCO)),'PVE',difficulty);m.phase=F.FIGHT
                 for _ in range(600):m.update(FIXED_DT);m.collect_events()
                 for p in m.players:
                     self.assertGreaterEqual(p.vida,0);self.assertLessEqual(p.reiatsu,p.reiatsu_maximo)
@@ -129,7 +129,7 @@ class CombatTests(unittest.TestCase):
         self.assertIn(self.b.estado_atual,(E.IDLE,E.WALK))
 
     def test_specials_spawn_and_barrier_expires(self):
-        for i in range(4):
+        for i in range(len(ELENCO)):
             for key in ('special','special2','ultimate','exclusive'):
                 m=Match((i,1),'PVP');m.phase=F.FIGHT
                 p=m.players[0];p.reiatsu=130;p.forma_liberada=True;p.tempo_liberacao=10

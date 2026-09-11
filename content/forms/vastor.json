@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Resurrección: Devorador",
+    "cost": 70,
+    "duration": 10,
+    "exhaustion": 3,
+    "damage": 1.25,
+    "speed": 1.1,
+    "reach": 1.25,
+    "absorption": 0.85,
+    "reflect": false,
+    "regen": 0,
+    "technique": "Cero devastador"
+  }
+]

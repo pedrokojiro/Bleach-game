@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Vollständig: Sternflug",
+    "cost": 70,
+    "duration": 10,
+    "exhaustion": 3,
+    "damage": 1.14,
+    "speed": 1.3,
+    "reach": 1.25,
+    "absorption": 1,
+    "reflect": false,
+    "regen": 6,
+    "technique": "Lichtregen"
+  }
+]

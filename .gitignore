@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+settings.json
+settings.json.tmp
+build/
+dist/
+*.spec
+.tools/
+godot/.godot/
+godot/content/
+godot/export/
+godot/qa/
+qa-output/

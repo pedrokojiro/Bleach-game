@@ -1,14 +1,13 @@
 @echo off
 cd /d "%~dp0"
-py -3 -m pip install -r requirements.txt
+if not exist "..\..\.venv\Scripts\python.exe" call "..\..\INSTALAR.cmd"
 if errorlevel 1 goto erro
-py -3 -m pip install pyinstaller
+"..\..\.venv\Scripts\python.exe" -m pip install pyinstaller
 if errorlevel 1 goto erro
-py -3 -m PyInstaller --noconfirm --clean --onedir --windowed --name EclipseSpiritClash --add-data "assets;assets" game.py
+"..\..\.venv\Scripts\python.exe" -m PyInstaller --noconfirm --clean --onefile --windowed --name BleachSpiritualCrossroads --distpath "..\..\dist" --workpath "..\..\build\pyinstaller" --specpath "..\..\build" --add-data "%CD%\assets;assets" game.py
 if errorlevel 1 goto erro
 echo.
-echo Distribuicao criada em dist\EclipseSpiritClash.
-echo Compartilhe a pasta inteira, nao apenas o .exe.
+echo Executavel criado em dist\BleachSpiritualCrossroads.exe.
 pause
 exit /b 0
 :erro
