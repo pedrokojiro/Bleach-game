@@ -1,0 +1,4 @@
+Assets opcionais. O jogo gera efeitos simples sem estes arquivos.
+Musicas: menu.ogg, arena.ogg.
+Sons WAV: hit, heavy, block, parry, special, release, ko, jump, land, dash, confirm, victory.
+Use apenas audio proprio ou com licenca que permita o uso.
